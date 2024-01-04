@@ -1,0 +1,36 @@
+Problem Statement: Given a string s, reverse the words of the string
+Example 1:
+Input: s=”this is an amazing program”
+Output: “program amazing an is this”
+#include<sstream>
+string reverseString(string &str){
+    // Write your code here.
+    stringstream s(str);
+    string word;
+
+    vector<string>temp;
+    string ans="";
+
+    while(s>>word)
+    {
+        temp.push_back(word);
+    }
+
+    for(int i=temp.size()-1;i>=0;i--)
+    {
+        if(i!=0)
+        {
+            ans+=temp[i]+" ";
+        }
+        else{
+            ans+=temp[i];
+        }
+    }
+    return ans;
+}
+
+1.	It uses a stringstream named s to tokenize the input string str into words.
+2.	It defines a vector of strings named temp to store the individual words.
+3.	It uses a while loop to read words from the stringstream and store them in the temp vector.
+4.	It then uses a for loop to iterate over the temp vector in reverse order and concatenate the words with spaces in between.
+5.	The final reversed string is stored in the variable ans.
